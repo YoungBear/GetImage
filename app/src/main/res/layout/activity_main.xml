@@ -22,4 +22,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="to glide"/>
+
+    <Button
+        android:id="@+id/btn_picasso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to picasso"/>
 </LinearLayout>

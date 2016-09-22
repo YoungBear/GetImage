@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.getimage.activity.GlideActivity;
+import com.example.getimage.activity.PicassoActivity;
 
 public class MainActivity extends Activity {
 
     private Button btnGlide;
+    private Button btnPicasso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +23,10 @@ public class MainActivity extends Activity {
 
     private void initViews() {
         btnGlide = (Button) findViewById(R.id.btn_glide);
+        btnPicasso = (Button) findViewById(R.id.btn_picasso);
 
         btnGlide.setOnClickListener(btnClickListener);
+        btnPicasso.setOnClickListener(btnClickListener);
     }
 
     private View.OnClickListener btnClickListener = new View.OnClickListener() {
@@ -32,6 +36,8 @@ public class MainActivity extends Activity {
                 case R.id.btn_glide:
                     startActivity(GlideActivity.class);
                     break;
+                case R.id.btn_picasso:
+                    startActivity(PicassoActivity.class);
                 default :
                     break;
             }
