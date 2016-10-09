@@ -28,4 +28,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="to picasso"/>
+
+    <Button
+        android:id="@+id/btn_volley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to volley" />
+
+    <Button
+        android:id="@+id/btn_uil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to universal image loader"/>
+
 </LinearLayout>

@@ -2,4 +2,6 @@
     <string name="app_name">GetImage</string>
     <string name="glide_name">Glide</string>
     <string name="picasso_name">Picasso</string>
+    <string name="volley_name">Volley</string>
+    <string name="uil_name">Universal Image Loader</string>
 </resources>
