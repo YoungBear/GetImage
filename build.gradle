@@ -41,7 +41,7 @@ ext {
 
             supportVersion      : "25.3.1",
 
-            glide               : "3.7.0",
+            glide               : "4.1.1",
             picasso             : "2.5.2",
             volley              : "1.0.0",
             universalimageloader: "1.9.5"

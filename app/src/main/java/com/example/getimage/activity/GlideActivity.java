@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.example.getimage.R;
+import com.example.getimage.glide.GlideApp;
 
 public class GlideActivity extends Activity {
 
@@ -25,7 +25,7 @@ public class GlideActivity extends Activity {
     private void initViews() {
         imgShow = (ImageView) findViewById(R.id.img_show);
 
-        Glide.with(GlideActivity.this)
+        GlideApp.with(GlideActivity.this)
                 .load(IMG_URL)
                 .into(imgShow);
     }

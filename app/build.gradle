@@ -73,9 +73,19 @@ dependencies {
     compile "com.android.support:support-v4:${libs.supportVersion}"
 
     compile "com.github.bumptech.glide:glide:${libs.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${libs.glide}"
+
     compile "com.squareup.picasso:picasso:${libs.picasso}"
+
     compile "com.android.volley:volley:${libs.volley}"
+
     compile "com.nostra13.universalimageloader:universal-image-loader:${libs.universalimageloader}"
+
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.google.com' }
 }
 
 def static getTime() {

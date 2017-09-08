@@ -133,8 +133,9 @@
 # 4. 第三方框架(具体参考最新官方文档)
 
 
-# Glide 3.7.0
+# Glide 4.1.1
 -keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.AppGlideModule
 -keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
   **[] $VALUES;
   public *;
