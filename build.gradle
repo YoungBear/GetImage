@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.3.3'
 
 
 
@@ -22,4 +22,29 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+
+    configuration = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "26.0.0",
+            package          : "com.example.getimage",
+            minSdkVersion    : 17,
+            targetSdkVersion : 25,
+
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    libraries = [
+            espressoVersion  : "2.2.2",
+            junitVersion     : "4.12",
+
+            supportVersion   : "25.3.1",
+
+            glide            : "3.7.0",
+            picasso          : "2.5.2"
+    ]
+
 }

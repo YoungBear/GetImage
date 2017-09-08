@@ -1,9 +1,21 @@
 apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+def cfg = rootProject.ext.configuration // 配置
+def libs = rootProject.ext.libraries // 库
 
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        applicationId cfg.package
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //签名配置
     signingConfigs {
         release {
             keyAlias 'ysx_test_alias'
@@ -16,14 +28,6 @@ android {
         }
     }
 
-    defaultConfig {
-        applicationId "com.example.getimage"
-        minSdkVersion 19
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
     buildTypes {
 
         debug {
@@ -43,13 +47,17 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.android.support:support-v4:24.2.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:${libs.espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:${libs.junitVersion}"
     compile files('libs/volley-1.0.19.jar')
     compile files('libs/universal-image-loader-1.9.5.jar')
+
+    compile "com.android.support:support-v4:${libs.supportVersion}"
+
+    compile "com.github.bumptech.glide:glide:${libs.glide}"
+
+    compile "com.squareup.picasso:picasso:${libs.picasso}"
 }
