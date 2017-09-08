@@ -1,6 +1,5 @@
 package com.example.getimage;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +9,9 @@ import com.example.getimage.activity.GlideActivity;
 import com.example.getimage.activity.PicassoActivity;
 import com.example.getimage.activity.UILActivity;
 import com.example.getimage.activity.VolleyActivity;
+import com.example.getimage.base.BaseActivity;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     private Button btnGlide;
     private Button btnPicasso;
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
                 case R.id.btn_uil:
                     startActivity(UILActivity.class);
                     break;
-                default :
+                default:
                     break;
             }
 

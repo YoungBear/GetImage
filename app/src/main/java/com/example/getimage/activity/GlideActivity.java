@@ -1,13 +1,13 @@
 package com.example.getimage.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.getimage.R;
+import com.example.getimage.base.BaseActivity;
 import com.example.getimage.glide.GlideApp;
 
-public class GlideActivity extends Activity {
+public class GlideActivity extends BaseActivity {
 
     private static final String TAG = GlideActivity.class.getSimpleName();
 

@@ -1,13 +1,13 @@
 package com.example.getimage.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.getimage.R;
+import com.example.getimage.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
-public class PicassoActivity extends Activity {
+public class PicassoActivity extends BaseActivity {
 
     public static final String IMG_URL = "http://i.imgur.com/zkaAooq.jpg ";
 
