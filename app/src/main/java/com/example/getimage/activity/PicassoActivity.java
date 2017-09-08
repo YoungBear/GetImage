@@ -7,24 +7,26 @@ import com.example.getimage.R;
 import com.example.getimage.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PicassoActivity extends BaseActivity {
 
     public static final String IMG_URL = "http://i.imgur.com/zkaAooq.jpg ";
-
-    private ImageView imgShow;
+    @BindView(R.id.img_show)
+    ImageView mImgShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picasso);
-        initViews();
+        ButterKnife.bind(this);
     }
 
     private void initViews() {
-        imgShow = (ImageView) findViewById(R.id.img_show);
 
         Picasso.with(PicassoActivity.this)
                 .load(IMG_URL)
-                .into(imgShow);
+                .into(mImgShow);
     }
 }

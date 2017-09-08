@@ -7,11 +7,16 @@ import com.example.getimage.R;
 import com.example.getimage.base.BaseActivity;
 import com.example.getimage.glide.GlideApp;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class GlideActivity extends BaseActivity {
 
     private static final String TAG = GlideActivity.class.getSimpleName();
 
     public static final String IMG_URL = "http://i.imgur.com/CqmBjo5.jpg";
+    @BindView(R.id.img_show)
+    ImageView mImgShow;
 
     private ImageView imgShow;
 
@@ -19,14 +24,15 @@ public class GlideActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide);
+        ButterKnife.bind(this);
         initViews();
     }
 
     private void initViews() {
-        imgShow = (ImageView) findViewById(R.id.img_show);
 
         GlideApp.with(GlideActivity.this)
                 .load(IMG_URL)
-                .into(imgShow);
+                .into(mImgShow);
     }
+
 }

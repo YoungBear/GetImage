@@ -14,23 +14,27 @@ import com.example.getimage.R;
 import com.example.getimage.base.BaseActivity;
 import com.example.getimage.data.Data;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class VolleyActivity extends BaseActivity {
 
     private static final String TAG = VolleyActivity.class.getSimpleName();
+    @BindView(R.id.img_show)
+    ImageView mImgShow;
+    @BindView(R.id.img_show2)
+    ImageView mImgShow2;
 
-    private ImageView imgShow;
-    private ImageView imgShow2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volley);
+        ButterKnife.bind(this);
         initViews();
     }
 
     private void initViews() {
-        imgShow = (ImageView) findViewById(R.id.img_show);
-        imgShow2 = (ImageView) findViewById(R.id.img_show2);
         RequestQueue mQueue = Volley.newRequestQueue(this.getApplicationContext());
 
         final ImageRequest imageRequest = new ImageRequest(
@@ -38,7 +42,7 @@ public class VolleyActivity extends BaseActivity {
                 new Response.Listener<Bitmap>() {
                     @Override
                     public void onResponse(Bitmap bitmap) {
-                        imgShow.setImageBitmap(bitmap);
+                        mImgShow.setImageBitmap(bitmap);
                     }
                 },
                 0,
@@ -47,7 +51,7 @@ public class VolleyActivity extends BaseActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        imgShow.setImageResource(R.mipmap.circle_error);
+                        mImgShow.setImageResource(R.mipmap.circle_error);
                     }
                 }
         );
@@ -64,7 +68,8 @@ public class VolleyActivity extends BaseActivity {
 
             }
         });
-        ImageLoader.ImageListener listener = ImageLoader.getImageListener(imgShow2, R.mipmap.loading, R.mipmap.circle_error);
+        ImageLoader.ImageListener listener = ImageLoader.getImageListener(mImgShow2,
+                R.mipmap.loading, R.mipmap.circle_error);
         imageLoader.get(Data.IMAGE_URL2, listener);
     }
 }

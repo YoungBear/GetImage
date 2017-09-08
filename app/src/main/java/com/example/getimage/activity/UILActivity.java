@@ -13,40 +13,42 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class UILActivity extends BaseActivity {
 
     private static final String TAG = UILActivity.class.getSimpleName();
-
-
-    private ImageView imgShow;
-    private ImageView imgShow2;
+    @BindView(R.id.img_show)
+    ImageView mImgShow;
+    @BindView(R.id.img_show2)
+    ImageView mImgShow2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uil);
+        ButterKnife.bind(this);
 
         initViews();
     }
 
     private void initViews() {
-        imgShow = (ImageView) findViewById(R.id.img_show);
-        imgShow2 = (ImageView) findViewById(R.id.img_show2);
 
         ImageLoader.getInstance().loadImage(Data.IMAGE_URL, new ImageLoadingListener() {
             @Override
             public void onLoadingStarted(String s, View view) {
-                imgShow.setImageResource(R.mipmap.loading);
+                mImgShow.setImageResource(R.mipmap.loading);
             }
 
             @Override
             public void onLoadingFailed(String s, View view, FailReason failReason) {
-                imgShow.setImageResource(R.mipmap.circle_error);
+                mImgShow.setImageResource(R.mipmap.circle_error);
             }
 
             @Override
             public void onLoadingComplete(String s, View view, Bitmap bitmap) {
-                imgShow.setImageBitmap(bitmap);
+                mImgShow.setImageBitmap(bitmap);
             }
 
             @Override
@@ -65,7 +67,8 @@ public class UILActivity extends BaseActivity {
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .build();
 
-        ImageLoader.getInstance().displayImage(Data.IMAGE_URL2, imgShow2, options);
+        ImageLoader.getInstance().displayImage(Data.IMAGE_URL2,
+                mImgShow2, options);
 
 
     }
