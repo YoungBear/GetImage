@@ -3,6 +3,19 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+
+    signingConfigs {
+        release {
+            keyAlias 'ysx_test_alias'
+            keyPassword '123456'
+            storeFile file('ysx_test.jks')
+            storePassword '1qaz2wsx'
+        }
+        debug{
+            storeFile file("debug.keystore")
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.getimage"
         minSdkVersion 19
@@ -12,9 +25,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+        debug {
+            // debug版本不混淆
+            minifyEnabled false
+        }
+
         release {
+            //todo release版本混淆
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
         }
     }
 }
