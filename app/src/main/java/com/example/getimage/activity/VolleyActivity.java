@@ -70,6 +70,6 @@ public class VolleyActivity extends BaseActivity {
         });
         ImageLoader.ImageListener listener = ImageLoader.getImageListener(mImgShow2,
                 R.mipmap.loading, R.mipmap.circle_error);
-        imageLoader.get(Data.IMAGE_URL2, listener);
+        imageLoader.get(Data.IMAGE_URL_2, listener);
     }
 }

@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.example.getimage.R;
 import com.example.getimage.base.BaseActivity;
+import com.example.getimage.data.Data;
 import com.example.getimage.glide.GlideApp;
 
 import butterknife.BindView;
@@ -14,7 +15,6 @@ public class GlideActivity extends BaseActivity {
 
     private static final String TAG = GlideActivity.class.getSimpleName();
 
-    public static final String IMG_URL = "http://i.imgur.com/CqmBjo5.jpg";
     @BindView(R.id.img_show)
     ImageView mImgShow;
 
@@ -31,7 +31,7 @@ public class GlideActivity extends BaseActivity {
     private void initViews() {
 
         GlideApp.with(GlideActivity.this)
-                .load(IMG_URL)
+                .load(Data.IMAGE_URL)
                 .into(mImgShow);
     }
 

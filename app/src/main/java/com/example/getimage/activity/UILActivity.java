@@ -67,7 +67,7 @@ public class UILActivity extends BaseActivity {
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .build();
 
-        ImageLoader.getInstance().displayImage(Data.IMAGE_URL2,
+        ImageLoader.getInstance().displayImage(Data.IMAGE_URL_2,
                 mImgShow2, options);
 
 
