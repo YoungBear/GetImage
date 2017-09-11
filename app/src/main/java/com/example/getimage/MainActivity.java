@@ -3,7 +3,6 @@ package com.example.getimage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.getimage.activity.GlideActivity;
 import com.example.getimage.activity.PicassoActivity;
@@ -11,20 +10,10 @@ import com.example.getimage.activity.UILActivity;
 import com.example.getimage.activity.VolleyActivity;
 import com.example.getimage.base.BaseActivity;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
-
-    @BindView(R.id.btn_glide)
-    Button mBtnGlide;
-    @BindView(R.id.btn_picasso)
-    Button mBtnPicasso;
-    @BindView(R.id.btn_volley)
-    Button mBtnVolley;
-    @BindView(R.id.btn_uil)
-    Button mBtnUil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +41,8 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_uil:
                 startActivity(UILActivity.class);
+                break;
+            default:
                 break;
         }
     }

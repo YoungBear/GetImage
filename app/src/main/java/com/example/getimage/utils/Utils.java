@@ -31,7 +31,10 @@ public final class Utils {
     public static File getImageCacheDirectory(Context context) {
         File directory = new File(getStoragePath(context) + "images/");
         if (!directory.exists()) {
-            directory.mkdirs();
+            boolean b = directory.mkdirs();
+            if (!b) {
+                return null;
+            }
         }
         return directory;
     }
